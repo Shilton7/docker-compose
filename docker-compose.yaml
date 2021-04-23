@@ -2,12 +2,18 @@ version: '3'
 
 services:
     laravel:
+        build: 
+            context: ./laravel
+            dockerfile: Dockerfile.prod
         image: shilton7/laravel-shilton:prod
         container_name: laravel
         networks: 
             - laranet
 
     nginx:
+        build: 
+            context: ./nginx
+            dockerfile: Dockerfile.prod
         image: shilton7/nginx-shilton:prod
         container_name: nginx
         networks: 
