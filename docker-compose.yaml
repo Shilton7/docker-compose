@@ -13,6 +13,9 @@ services:
         tty: true
         ports: 
             - "3000:3000"
+        depends_on: 
+            - db
+        entrypoint: dockerize -wait tcp://db:3306 -timeout 20s docker-entrypoint.sh
 
     db:
         image: mysql:5.7
